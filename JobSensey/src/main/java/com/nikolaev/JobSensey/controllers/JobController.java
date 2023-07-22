@@ -1,12 +1,5 @@
 package com.nikolaev.JobSensey.controllers;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,31 +25,7 @@ public class JobController {
 
     // Отправка запроса для предоставления анализа профессии
     @GetMapping("/analyze")
-    public Job getJob(@RequestParam String profession,@RequestParam String[] creteria) {
+    public Job getJob(@RequestParam String profession,@RequestParam(required = false) String[] creteria) {
         return jobService.makeDesicion(profession, creteria);
-    }
-
-    @GetMapping("/test")
-    public String getServer() {
-         HttpClient httpClient = HttpClient.newHttpClient();
-        String apiUrl = "http://127.0.0.1:8000/";
-        try {
-             HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI(apiUrl))
-                .GET()
-                .build();
-        
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        
-            if (response.statusCode() == 200) {
-                String responseBody = response.body();
-                return responseBody;
-            }
-        } catch (URISyntaxException exc) {
-
-        } catch (IOException exc) {
-
-        } catch (InterruptedException exc) {}
-        return new String();
     }
 }
