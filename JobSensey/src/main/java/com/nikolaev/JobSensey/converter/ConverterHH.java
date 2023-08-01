@@ -15,7 +15,8 @@ public class ConverterHH extends Converter {
         ObjectMapper mapper = new ObjectMapper();
         List<Map<String, Object>> resultListMap = new ArrayList<>();
         try {
-            List<Map<String, Object>> items = mapper.readValue(json, new TypeReference<List<Map<String, Object>>>() {});
+            List<Map<String, Object>> items = mapper.readValue(json, new TypeReference<List<Map<String, Object>>>() {
+            });
             for (Map<String, Object> item : items) {
                 String name = getName(item);
                 String description = getDescription(item);
@@ -24,8 +25,11 @@ public class ConverterHH extends Converter {
                 Map<String, Object> newJson = newItemResultJson(name, description, salary, skills);
                 resultListMap.add(newJson);
             }
-           return mapper.writeValueAsString(resultListMap);
-        } catch (Exception e) {}
+            return mapper.writeValueAsString(resultListMap);
+        } catch (Exception e) {
+            System.out.println("Module - ConverterHH, method - getInfo");
+            System.out.println(e.getClass());
+        }
         return null;
     }
 
@@ -53,5 +57,5 @@ public class ConverterHH extends Converter {
     private String getSkills(Map<String, Object> item) {
         return String.valueOf(item.get("key_skills"));
     }
-    
+
 }

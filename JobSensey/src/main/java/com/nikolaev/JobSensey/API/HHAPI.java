@@ -14,10 +14,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nikolaev.JobSensey.converter.ConverterHH;
 
-public class HHAPI extends JobAPI{
+public class HHAPI extends JobAPI {
 
     ObjectMapper mapper;
-    List<Map<String,Object>> listMap;
+    List<Map<String, Object>> listMap;
 
     public HHAPI() {
         super(new ConverterHH());
@@ -34,107 +34,137 @@ public class HHAPI extends JobAPI{
             String json = getJson(profession, String.valueOf(page));
             getVacancies(json);
         }
-       
+
         try {
             result = this.mapper.writeValueAsString(this.listMap);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            System.out.println("Module - HHAPI, method - getAllJson");
+            System.out.println("convert from json into String");
+            System.out.println(e.getClass());
+        }
 
         return result;
-       
+
     }
-    
 
     private void addJson(String json) {
         try {
-            Map<String, Object> jsonMap = this.mapper.readValue(json, new TypeReference<Map<String, Object>>() {});
+            Map<String, Object> jsonMap = this.mapper.readValue(json, new TypeReference<Map<String, Object>>() {
+            });
             this.listMap.add(jsonMap);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            System.out.println("Module - HHAPI, method - addJSon");
+            System.out.println(e.getClass());
+        }
     }
 
     private void getVacancies(String json) {
         try {
-            List<Map<String,Object>> items = this.mapper.readValue(json, new TypeReference<List<Map<String, Object>>>() {});
+            List<Map<String, Object>> items = this.mapper.readValue(json, List.class);
             for (Map<String, Object> item : items) {
                 String url = String.valueOf(item.get("url"));
                 addJson(getVacancy(url));
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            System.out.println("Module - HHAPI method - getVacancies");
+            System.out.println(e.getClass());
+        }
     }
-
 
     private String getJson(String profession, String page) {
 
         HttpClient httpClient = HttpClient.newHttpClient();
-        String apiUrl = "https://api.hh.ru/vacancies?text=" + profession + "&page=" + page;
+        String apiUrl = "https://api.hh.ru/vacancies?per_page=100&search_field=name&text=" + profession + "&page=" + page;
 
         try {
-             HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI(apiUrl))
-                .GET()
-                .build();
-        
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(apiUrl))
+                    .GET()
+                    .build();
+
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        
+
             if (response.statusCode() == 200) {
                 String body = response.body();
                 try {
-                    Map<String, Object> BodyMap = this.mapper.readValue(body, new TypeReference<Map<String, Object>>() {});
-                    String itemsString =  String.valueOf(BodyMap.get("items"));
+                    Map<String, Object> BodyMap = this.mapper.readValue(body, new TypeReference<Map<String, Object>>() {
+                    });
+                    String itemsString = this.mapper.writeValueAsString(BodyMap.get("items"));
                     return itemsString;
-                } catch (Exception e) {}
-                
+                } catch (Exception e) {
+                    System.out.println("Module - HHAPI, method - getJson");
+                    System.out.println("Not find items or can`t convert");
+                    System.out.println(e.getClass());
+                }
+
             }
 
-        } catch (URISyntaxException | IOException | InterruptedException exc) { } 
+        } catch (URISyntaxException | IOException | InterruptedException exc) {
+            System.out.println("Module - HHAPI, method - getJson");
+            System.out.println(exc.getClass());
+        }
         return null;
     }
 
     private String getVacancy(String url) {
-
         HttpClient httpClient = HttpClient.newHttpClient();
         String apiUrl = url;
 
         try {
-             HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI(apiUrl))
-                .GET()
-                .build();
-        
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        
-            if (response.statusCode() == 200) return  response.body();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(apiUrl))
+                    .GET()
+                    .build();
 
-        } catch (URISyntaxException | IOException | InterruptedException exc) { } 
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200) {
+                return response.body();
+            }
+
+        } catch (URISyntaxException | IOException | InterruptedException exc) {
+            System.out.println("Module - HHAPI, method - getVacancy");
+            System.out.println(exc.getClass());
+        }
         return null;
-        
+
     }
 
-     private String getJson(String profession) {
+    private String getJson(String profession) {
 
         HttpClient httpClient = HttpClient.newHttpClient();
-        String apiUrl = "https://api.hh.ru/vacancies?text=" + profession;
+        String apiUrl = "https://api.hh.ru/vacancies?search_field=name&per_page=100&text=" + profession;
 
         try {
-             HttpRequest request = HttpRequest.newBuilder()
-                .uri(new URI(apiUrl))
-                .GET()
-                .build();
-        
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        
-            if (response.statusCode() == 200) return  response.body();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(apiUrl))
+                    .GET()
+                    .build();
 
-        } catch (URISyntaxException | IOException | InterruptedException exc) { } 
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200)
+                return response.body();
+
+        } catch (URISyntaxException | IOException | InterruptedException exc) {
+            System.out.println("Module - HHAPI, method - getJson with one parametr");
+            System.out.println(exc.getClass());
+        }
         return null;
     }
 
     private int getPages(String profession) {
         String json = getJson(profession);
         try {
-            Map<String, Object> jsonMap = this.mapper.readValue(json, new TypeReference<Map<String, Object>>() {});
+            Map<String, Object> jsonMap = this.mapper.readValue(json, new TypeReference<Map<String, Object>>() {
+            });
+
             return (int) jsonMap.get("pages");
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            System.out.println("Module - HHAPI, method - getPages");
+            System.out.println(e.getClass());
+        }
         return -1;
     }
-    
+
 }

@@ -14,7 +14,7 @@ public class WorkWithAPI {
     private ArrayList<JobAPI> arrayJobAPI;
 
     public WorkWithAPI() {
-       
+
     }
 
     // Данный метод проходится по всем API запрашивает данные
@@ -25,18 +25,25 @@ public class WorkWithAPI {
         ObjectMapper objectMapper = new ObjectMapper();
 
         ArrayNode jsonArray = objectMapper.createArrayNode();
+        String res = "";
 
         for (JobAPI job : arrayJobAPI) {
             String json = job.getResultJson(profession);
-            try {
-            ObjectNode jsonObject1 = objectMapper.readValue(json, ObjectNode.class);
-            jsonArray.add(jsonObject1);
-            } catch (Exception e) {}
+            res = json;
+            // try {
+            //     ObjectNode jsonObject1 = objectMapper.readValue(json, ObjectNode.class);
+            //     jsonArray.add(jsonObject1);
+            // } catch (Exception e) {
+            // }
         }
+
         arrayJobAPI = null;
         try {
-            return objectMapper.writeValueAsString(jsonArray);
-        } catch (Exception e) {}
+            return objectMapper.writeValueAsString(res);
+        } catch (Exception e) {
+            System.out.println("Module - WorkWithAPI, method - get profession");
+            System.out.println(e.getClass());
+        }
 
         return null;
     }
@@ -45,5 +52,5 @@ public class WorkWithAPI {
         this.arrayJobAPI = new ArrayList<JobAPI>();
         this.arrayJobAPI.add(new HHAPI());
     }
-    
+
 }
