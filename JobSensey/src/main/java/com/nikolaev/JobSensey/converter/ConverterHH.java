@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -51,11 +52,23 @@ public class ConverterHH extends Converter {
     }
 
     private String getSalary(Map<String, Object> item) {
-        return String.valueOf(item.get("salary"));
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(item.get("salary"));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private String getSkills(Map<String, Object> item) {
-        return String.valueOf(item.get("key_skills"));
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(item.get("key_skills"));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

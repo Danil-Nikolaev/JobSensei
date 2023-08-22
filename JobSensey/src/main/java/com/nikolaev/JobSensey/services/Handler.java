@@ -28,7 +28,6 @@ public class Handler {
     // затем результат отправляет анализатору
     public Job analyzeProfession(String profession) {
         String result = workWithAPI.getProfession(profession);
-        System.out.println(result);
         result = sendToAnalyzer(result);
         return new Job();
     }

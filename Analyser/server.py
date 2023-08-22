@@ -25,7 +25,7 @@ async def app(scope, receive, send):
     # image.show()
 
     as_json: json = json.loads(body)
-
+    print(scope)
     print(as_json)
 
     await send({
