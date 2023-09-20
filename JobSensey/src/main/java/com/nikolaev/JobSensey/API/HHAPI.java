@@ -1,14 +1,13 @@
 package com.nikolaev.JobSensey.API;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,6 +27,7 @@ public class HHAPI extends JobAPI {
     @Override
     protected String getAllJson(String profession) {
         int pages = getPages(profession);
+        System.out.println(pages);
         String result = "Error";
 
         for (int page = 0; page < pages; page++) {
@@ -62,7 +62,13 @@ public class HHAPI extends JobAPI {
         try {
             List<Map<String, Object>> items = this.mapper.readValue(json, List.class);
             for (Map<String, Object> item : items) {
-                String url = String.valueOf(item.get("url"));
+                String url = String.valueOf (item.get("url"));
+                try {
+                    TimeUnit.MILLISECONDS.sleep(500);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                System.out.println(url);
                 addJson(getVacancy(url));
             }
         } catch (Exception e) {
@@ -72,21 +78,14 @@ public class HHAPI extends JobAPI {
     }
 
     private String getJson(String profession, String page) {
-
-        HttpClient httpClient = HttpClient.newHttpClient();
         String apiUrl = "https://api.hh.ru/vacancies?per_page=100&search_field=name&text=" + profession + "&page=" + page;
 
-        try {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(new URI(apiUrl))
-                    .GET()
-                    .build();
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.getForEntity(apiUrl, String.class);
 
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-            if (response.statusCode() == 200) {
-                String body = response.body();
-                try {
+        if (response.getStatusCode() == HttpStatus.OK) {
+            String body = response.getBody();
+            try {
                     Map<String, Object> BodyMap = this.mapper.readValue(body, new TypeReference<Map<String, Object>>() {
                     });
                     String itemsString = this.mapper.writeValueAsString(BodyMap.get("items"));
@@ -96,59 +95,33 @@ public class HHAPI extends JobAPI {
                     System.out.println("Not find items or can`t convert");
                     System.out.println(e.getClass());
                 }
-
-            }
-
-        } catch (URISyntaxException | IOException | InterruptedException exc) {
-            System.out.println("Module - HHAPI, method - getJson");
-            System.out.println(exc.getClass());
         }
         return null;
     }
 
     private String getVacancy(String url) {
-        HttpClient httpClient = HttpClient.newHttpClient();
-        String apiUrl = url;
-
-        try {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(new URI(apiUrl))
-                    .GET()
-                    .build();
-
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-            if (response.statusCode() == 200) {
-                return response.body();
+        try{
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+           
+            if (response.getStatusCode() == HttpStatus.OK) {
+                return response.getBody();
             }
-
-        } catch (URISyntaxException | IOException | InterruptedException exc) {
-            System.out.println("Module - HHAPI, method - getVacancy");
-            System.out.println(exc.getClass());
+        }catch (Exception e) {
+            System.out.println("GetVacancy");
+            System.out.println(e.getClass());
         }
         return null;
+      
 
     }
 
     private String getJson(String profession) {
-
-        HttpClient httpClient = HttpClient.newHttpClient();
-        String apiUrl = "https://api.hh.ru/vacancies?search_field=name&per_page=100&text=" + profession;
-
-        try {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(new URI(apiUrl))
-                    .GET()
-                    .build();
-
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-            if (response.statusCode() == 200)
-                return response.body();
-
-        } catch (URISyntaxException | IOException | InterruptedException exc) {
-            System.out.println("Module - HHAPI, method - getJson with one parametr");
-            System.out.println(exc.getClass());
+        String url = "https://api.hh.ru/vacancies?search_field=name&per_page=100&text=" + profession;
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        if (response.getStatusCode() == HttpStatus.OK) {
+            return response.getBody();
         }
         return null;
     }
@@ -158,7 +131,6 @@ public class HHAPI extends JobAPI {
         try {
             Map<String, Object> jsonMap = this.mapper.readValue(json, new TypeReference<Map<String, Object>>() {
             });
-
             return (int) jsonMap.get("pages");
         } catch (Exception e) {
             System.out.println("Module - HHAPI, method - getPages");
