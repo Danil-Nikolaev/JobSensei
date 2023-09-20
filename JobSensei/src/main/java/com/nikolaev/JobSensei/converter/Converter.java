@@ -1,4 +1,4 @@
-package com.nikolaev.JobSensey.converter;
+package com.nikolaev.JobSensei.converter;
 
 public abstract class Converter {
     public String convert(String json) {

@@ -1,4 +1,4 @@
-package com.nikolaev.JobSensey.models;
+package com.nikolaev.JobSensei.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

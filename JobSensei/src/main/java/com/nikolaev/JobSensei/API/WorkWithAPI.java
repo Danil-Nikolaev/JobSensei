@@ -1,4 +1,4 @@
-package com.nikolaev.JobSensey.API;
+package com.nikolaev.JobSensei.API;
 
 import java.util.ArrayList;
 

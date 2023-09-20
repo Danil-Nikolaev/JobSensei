@@ -1,4 +1,4 @@
-package com.nikolaev.JobSensey.converter;
+package com.nikolaev.JobSensei.converter;
 
 import java.util.ArrayList;
 import java.util.HashMap;

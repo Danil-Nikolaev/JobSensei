@@ -1,4 +1,4 @@
-package com.nikolaev.JobSensey.API;
+package com.nikolaev.JobSensei.API;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nikolaev.JobSensey.converter.ConverterHH;
+import com.nikolaev.JobSensei.converter.ConverterHH;
 
 public class HHAPI extends JobAPI {
 

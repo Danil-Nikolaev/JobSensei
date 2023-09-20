@@ -1,4 +1,4 @@
-package com.nikolaev.JobSensey.services;
+package com.nikolaev.JobSensei.services;
 
 import java.io.IOException;
 import java.net.URI;
@@ -10,8 +10,8 @@ import java.net.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nikolaev.JobSensey.API.WorkWithAPI;
-import com.nikolaev.JobSensey.models.Job;
+import com.nikolaev.JobSensei.API.WorkWithAPI;
+import com.nikolaev.JobSensei.models.Job;
 
 @Service
 public class Handler {

@@ -1,8 +1,8 @@
-package com.nikolaev.JobSensey.API;
+package com.nikolaev.JobSensei.API;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.nikolaev.JobSensey.converter.Converter;
+import com.nikolaev.JobSensei.converter.Converter;
 
 public abstract class JobAPI {
 

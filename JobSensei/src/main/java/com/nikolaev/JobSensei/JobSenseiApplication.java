@@ -1,13 +1,13 @@
-package com.nikolaev.JobSensey;
+package com.nikolaev.JobSensei;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JobSenseyApplication {
+public class JobSenseiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JobSenseyApplication.class, args);
+		SpringApplication.run(JobSenseiApplication.class, args);
 	}
 
 }

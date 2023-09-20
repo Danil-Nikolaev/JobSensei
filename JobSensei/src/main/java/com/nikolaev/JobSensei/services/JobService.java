@@ -1,12 +1,12 @@
-package com.nikolaev.JobSensey.services;
+package com.nikolaev.JobSensei.services;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nikolaev.JobSensey.models.Job;
-import com.nikolaev.JobSensey.repositories.JobRepository;
+import com.nikolaev.JobSensei.models.Job;
+import com.nikolaev.JobSensei.repositories.JobRepository;
 
 @Service
 public class JobService {

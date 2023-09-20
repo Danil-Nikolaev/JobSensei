@@ -1,12 +1,12 @@
-package com.nikolaev.JobSensey.controllers;
+package com.nikolaev.JobSensei.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nikolaev.JobSensey.models.Job;
-import com.nikolaev.JobSensey.services.JobService;
+import com.nikolaev.JobSensei.models.Job;
+import com.nikolaev.JobSensei.services.JobService;
 
 @RestController
 public class JobController {
