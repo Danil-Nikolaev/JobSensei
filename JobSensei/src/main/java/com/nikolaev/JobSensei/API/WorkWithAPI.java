@@ -30,7 +30,6 @@ public class WorkWithAPI {
             resultArrayNode.addAll(jsonArrayNode);
         }
 
-        arrayJobAPI = null;
         return resultArrayNode;
     }
 

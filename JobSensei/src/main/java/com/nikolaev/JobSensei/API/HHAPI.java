@@ -26,12 +26,10 @@ public class HHAPI extends JobAPI {
     @Override
     protected ArrayNode getAllJson(String profession) {
         int pages = getPages(profession);
-
         for (int page = 0; page < pages; page++) {
             JsonNode json = getJson(profession, String.valueOf(page));
             getVacancies(json);
         }
-
         return jsonArray;
 
     }
@@ -89,7 +87,7 @@ public class HHAPI extends JobAPI {
     }
 
     private void addJson(String json) {
-        if (json.equals(json)) return;
+        if (json.equals("error")) return;
 
         JsonNode jsonNode = stringToJsonNode(json);
         this.jsonArray.add(jsonNode);
