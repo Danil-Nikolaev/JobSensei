@@ -2,8 +2,10 @@ package com.nikolaev.JobSensei.API;
 
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -12,13 +14,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.nikolaev.JobSensei.converter.ConverterHH;
 
+@Component
 public class HHAPI extends JobAPI {
 
     ObjectMapper mapper;
     ArrayNode jsonArray;
 
-    public HHAPI() {
-        super(new ConverterHH());
+    public HHAPI(@Autowired ConverterHH converterHH) {
+        super(converterHH);
         this.mapper = new ObjectMapper();
         this.jsonArray = mapper.createArrayNode();
     }

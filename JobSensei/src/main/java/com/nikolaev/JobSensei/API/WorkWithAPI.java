@@ -2,6 +2,7 @@ package com.nikolaev.JobSensei.API;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,8 +13,9 @@ public class WorkWithAPI {
 
     private ArrayList<JobAPI> arrayJobAPI;
 
-    public WorkWithAPI() {
-
+    public WorkWithAPI(@Autowired HHAPI hhapi) {
+        this.arrayJobAPI = new ArrayList<JobAPI>();
+        this.arrayJobAPI.add(hhapi);
     }
 
     // Данный метод проходится по всем API запрашивает данные
@@ -34,8 +36,7 @@ public class WorkWithAPI {
     }
 
     private void initializeArrayJob() {
-        this.arrayJobAPI = new ArrayList<JobAPI>();
-        this.arrayJobAPI.add(new HHAPI());
+       
     }
 
 }
