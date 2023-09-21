@@ -10,6 +10,10 @@ import java.net.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.nikolaev.JobSensei.API.WorkWithAPI;
 import com.nikolaev.JobSensei.models.Job;
 
@@ -27,8 +31,9 @@ public class Handler {
     // Данный метод сначала запрашивает данные из api,
     // затем результат отправляет анализатору
     public Job analyzeProfession(String profession) {
-        String result = workWithAPI.getProfession(profession);
-        result = sendToAnalyzer(result);
+        ArrayNode result = workWithAPI.getProfession(profession);
+        String resultString = jsonNodeToString(result);
+        resultString = sendToAnalyzer(resultString);
         return new Job();
     }
 
@@ -54,6 +59,16 @@ public class Handler {
             System.out.println(exc.getClass());
         }
         return null;
+    }
+
+    private String jsonNodeToString(JsonNode jsonNode) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(jsonNode);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+       return null;
     }
 
 }

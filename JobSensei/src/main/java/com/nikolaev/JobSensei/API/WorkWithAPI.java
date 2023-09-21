@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @Service
 public class WorkWithAPI {
@@ -19,33 +18,20 @@ public class WorkWithAPI {
 
     // Данный метод проходится по всем API запрашивает данные
     // Получая в результате json единого вида и складывая их друг с другом
-    public String getProfession(String profession) {
+    public ArrayNode getProfession(String profession) {
         initializeArrayJob();
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-        ArrayNode jsonArray = objectMapper.createArrayNode();
-        String res = "";
+        ArrayNode resultArrayNode = objectMapper.createArrayNode();
 
         for (JobAPI job : arrayJobAPI) {
-            String json = job.getResultJson(profession);
-            res = json;
-            // try {
-            //     ObjectNode jsonObject1 = objectMapper.readValue(json, ObjectNode.class);
-            //     jsonArray.add(jsonObject1);
-            // } catch (Exception e) {
-            // }
+            ArrayNode jsonArrayNode = job.getResultJson(profession);
+            resultArrayNode.addAll(jsonArrayNode);
         }
 
         arrayJobAPI = null;
-        try {
-            return objectMapper.writeValueAsString(res);
-        } catch (Exception e) {
-            System.out.println("Module - WorkWithAPI, method - get profession");
-            System.out.println(e.getClass());
-        }
-
-        return null;
+        return resultArrayNode;
     }
 
     private void initializeArrayJob() {

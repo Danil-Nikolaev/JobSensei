@@ -1,74 +1,52 @@
 package com.nikolaev.JobSensei.converter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class ConverterHH extends Converter {
 
     @Override
-    protected String getInfo(String json) {
+    protected ArrayNode getInfo(ArrayNode json) {
         ObjectMapper mapper = new ObjectMapper();
-        List<Map<String, Object>> resultListMap = new ArrayList<>();
-        try {
-            List<Map<String, Object>> items = mapper.readValue(json, new TypeReference<List<Map<String, Object>>>() {
-            });
-            for (Map<String, Object> item : items) {
-                String name = getName(item);
-                String description = getDescription(item);
-                String salary = getSalary(item);
-                String skills = getSkills(item);
-                Map<String, Object> newJson = newItemResultJson(name, description, salary, skills);
-                resultListMap.add(newJson);
-            }
-            return mapper.writeValueAsString(resultListMap);
-        } catch (Exception e) {
-            System.out.println("Module - ConverterHH, method - getInfo");
-            System.out.println(e.getClass());
+        ArrayNode arrayNode = mapper.createArrayNode();
+        for (JsonNode jsonNode : json) {
+            String name = getName(jsonNode);
+            String description = getDescription(jsonNode);
+            JsonNode salary = getSalary(jsonNode);
+            JsonNode skills = getSkills(jsonNode);
+            JsonNode jsonItem = newItemResultJson(name, description, salary, skills);
+            arrayNode.add(jsonItem);
         }
-        return null;
+    
+        return arrayNode;
     }
 
-    private Map<String, Object> newItemResultJson(String name, String description, String salary, String skills) {
-        Map<String, Object> newJson = new HashMap<>();
+    private JsonNode newItemResultJson(String name, String description, JsonNode salary, JsonNode skills) {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode newJson = mapper.createObjectNode();
         newJson.put("name", name);
         newJson.put("description", description);
-        newJson.put("salary", salary);
-        newJson.put("skills", skills);
+        newJson.set("salary", salary);
+        newJson.set("skills", skills);
         return newJson;
     }
 
-    private String getName(Map<String, Object> item) {
-        return String.valueOf(item.get("name"));
+    private String getName(JsonNode item) {
+        return item.get("name").asText();
     }
 
-    private String getDescription(Map<String, Object> item) {
-        return String.valueOf(item.get("description"));
+    private String getDescription(JsonNode item) {
+        return item.get("description").asText();
     }
 
-    private String getSalary(Map<String, Object> item) {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.writeValueAsString(item.get("salary"));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return null;
+    private JsonNode getSalary(JsonNode item) {
+        return item.get("salary");
     }
 
-    private String getSkills(Map<String, Object> item) {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.writeValueAsString(item.get("key_skills"));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return null;
+    private JsonNode getSkills(JsonNode item) {
+        return item.get("key_skills");
     }
 
 }

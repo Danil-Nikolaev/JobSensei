@@ -2,6 +2,7 @@ package com.nikolaev.JobSensei.API;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.nikolaev.JobSensei.converter.Converter;
 
 public abstract class JobAPI {
@@ -12,11 +13,11 @@ public abstract class JobAPI {
         this.converter = converter;
     }
 
-    protected abstract String getAllJson(String profession);
+    protected abstract ArrayNode getAllJson(String profession);
 
-    public String getResultJson(String profession) {
-        String json = getAllJson(profession);
-        json = this.converter.convert(json);
-        return json;
+    public ArrayNode getResultJson(String profession) {
+        ArrayNode json = getAllJson(profession);
+        ArrayNode jsonArrayNode = this.converter.convert(json);
+        return jsonArrayNode;
     }
 }

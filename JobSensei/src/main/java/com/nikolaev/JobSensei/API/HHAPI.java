@@ -24,25 +24,15 @@ public class HHAPI extends JobAPI {
     }
 
     @Override
-    protected String getAllJson(String profession) {
+    protected ArrayNode getAllJson(String profession) {
         int pages = getPages(profession);
-        System.out.println(pages);
-        String result = "Error";
 
         for (int page = 0; page < pages; page++) {
             JsonNode json = getJson(profession, String.valueOf(page));
             getVacancies(json);
         }
 
-        try {
-            result = this.mapper.writeValueAsString(this.jsonArray);
-        } catch (Exception e) {
-            System.out.println("Module - HHAPI, method - getAllJson");
-            System.out.println("convert from json into String");
-            System.out.println(e.getClass());
-        }
-
-        return result;
+        return jsonArray;
 
     }
 
@@ -90,6 +80,14 @@ public class HHAPI extends JobAPI {
         return null;
     }
 
+    private void getVacancies(JsonNode jsonNode) {
+        for (JsonNode item : jsonNode) {
+            String url = item.get("url").asText();
+            sleep();
+            addJson(getVacancy(url));
+        }
+    }
+
     private void addJson(String json) {
         if (json.equals(json)) return;
 
@@ -102,14 +100,6 @@ public class HHAPI extends JobAPI {
             TimeUnit.MILLISECONDS.sleep(500);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-        }
-    }
-
-    private void getVacancies(JsonNode jsonNode) {
-        for (JsonNode item : jsonNode) {
-            String url = item.get("url").asText();
-            sleep();
-            addJson(getVacancy(url));
         }
     }
 
