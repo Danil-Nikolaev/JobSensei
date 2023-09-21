@@ -21,7 +21,6 @@ public class WorkWithAPI {
     // Данный метод проходится по всем API запрашивает данные
     // Получая в результате json единого вида и складывая их друг с другом
     public ArrayNode getProfession(String profession) {
-        initializeArrayJob();
 
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -35,8 +34,5 @@ public class WorkWithAPI {
         return resultArrayNode;
     }
 
-    private void initializeArrayJob() {
-       
-    }
 
 }
