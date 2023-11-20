@@ -1,45 +1,45 @@
-from PIL import Image, ImageFile
-import pprint
-import io
-import json
+from typing import List
+import uvicorn
+from converter import Converter
+from vacancies import Vacancies
+from analyser import Analyser
 
-async def app(scope, receive, send):
-    assert scope['type'] == 'http'
 
-    body = b''
+class Server:
+    def __init__(self):
+        self.vacancies = Vacancies()
+        self.analyser = Analyser()
 
-    more_body = True
-    while more_body:
-        event = await receive()
-        body += event['body']
-        more_body = event['more_body']
+    async def __call__(self, scope, receive, send):
+        assert scope['type'] == 'http'
 
-    # print(len(binary_image))
+        body = b''
 
-    # ImageFile.LOAD_TRUNCATED_IMAGES = False
+        more_body = True
+        while more_body:
+            event = await receive()
+            body += event['body']
+            more_body = event['more_body']
 
-    # stream = io.BytesIO(binary_image)
+        body: List[dict] = Converter.to_object(body)
+        vacancies = self.vacancies.from_json(body)
+        results = self.analyser.analyse(vacancies, avg_salary=True, cities=True)
+        results = Converter.from_object(results)
 
-    # image = Image.open(stream)
+        await send({
+            'type': 'http.response.start',
+            'status': 200,
+            'headers': [
+                [b'content-type', b'text/plain'],
+            ],
+        })
 
-    # image.show()
+        await send({
+            'type': 'http.response.body',
+            'body': results,
+        })
 
-    print(type(body))
-    # body = b"[{\"name\": \"nameOne\"}, {\"name\": \"nameTwo\"}]"
-    # body = "[{\"skills\":[],\"name\":\"Junior Java Developer\",\"description\":\"<strong>Обязанности:</strong> <ul> <li>Разработка и администрирование корпоративной шины предприятия;</li> <li>Создание интеграционного обмена между различными информационными системами;</li> <li>Администрирование и сопровождение созданных и уже реализованных интеграционных сценариев;</li> <li>Создание с &quot;0&quot; новые точки интеграции, обеспечение их бесперебойной работы, включая разбор инцидентов и их решение.</li> </ul> <strong>Требования:</strong> <ul> <li>Высшее образование в области ИТ / техническое;</li> <li>Знания в области построения сервисно-ориентированной архитектуры предприятия;</li> <li>Опыт администрирования интеграционной шины; Опыт разработки будет преимуществом;</li> <li>Опыт разработки java;</li> <li>Знания SQL;</li> <li>Опыт реализации REST API;</li> <li>Опыт администрирования и развития стека ELK приветствуется;</li> <li>Опыт работы с системами контроля версий приветствуется;</li> <li>Опыт работы с различными форматами данных (json/xml/csv) приветствуется;</li> <li>Опыт коммерческой разработки с одним из брокеров: Kafka, Rabbit MQ или Active MQ приветствуется;</li> <li>Опыт разработки с интеграционными платформами, в т.ч. Mulesoft приветствуется.</li> </ul> <strong>Условия:</strong> <ul> <li>Официальное трудоустройство по ТК РФ;</li> <li>Формат работы офисный / гибридный / удаленный (на выбор);</li> <li>Годовой бонус по результатам работы;</li> <li>ДМС после испытательного срока.</li> </ul>\",\"salary\":null}]"
-    as_json = json.loads(body)
 
-    print(type(as_json))
-
-    await send({
-        'type': 'http.response.start',
-        'status': 200,
-        'headers': [
-            [b'content-type', b'text/plain'],
-        ],
-    })
-
-    await send({
-        'type': 'http.response.body',
-        'body': b'Hello, world!',
-    })
+if __name__ == "__main__":
+    server = Server()
+    uvicorn.run(server)
