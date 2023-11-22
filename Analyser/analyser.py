@@ -7,19 +7,27 @@ class Analyser:
                 avg_salary=False,
                 cities=False,
                 descriptions=False,
-                skills=False) -> dict:
+                skills=False,
+                experience_reqs=False) -> dict:
 
         result = {}
 
+        if descriptions:
+            result.update(self.descriptions(vacancies))
         if avg_salary:
             result.update(self.avg_salary(vacancies))
         if cities:
             result.update(self.cities(vacancies))
-        if descriptions:
-            result.update(self.descriptions(vacancies))
         if skills:
             result.update(self.skills(vacancies))
+        if experience_reqs:
+            result.update(self.experience_reqs(vacancies))
 
+        return result
+
+    def descriptions(self, vacancies: Vacancies) -> Dict[str, list]:
+        result = {}
+        result["descriptions"] = vacancies.descriptions()
         return result
 
     def avg_salary(self, vacancies: Vacancies) -> dict:
@@ -46,7 +54,6 @@ class Analyser:
         result["cities"] = {}
 
         cities = vacancies.cities()
-        print(len(cities))
 
         for city in cities:
             result["cities"][city] = (result["cities"][city] + 1) if city in result["cities"] else 1
@@ -56,17 +63,11 @@ class Analyser:
 
         return result
 
-    def descriptions(self, vacancies: Vacancies) -> Dict[str, list]:
-        result = {}
-        result["descriptions"] = vacancies.descriptions()
-        return result
-
     def skills(self, vacancies: Vacancies, sort_desc=True) -> Dict[str, dict]:
         result = {}
         result["skills"] = {}
 
         skills = vacancies.skills()
-        print(len(skills))
 
         for vacancy_skills in skills:
             if vacancy_skills is not None:
@@ -75,5 +76,19 @@ class Analyser:
 
         if sort_desc:
             result["skills"] = dict(sorted(result["skills"].items(), key=lambda item: item[1], reverse=True))
+
+        return result
+
+    def experience_reqs(self, vacancies: Vacancies, sort_desc=True) -> Dict[str, dict]:
+        result = {}
+        result["experience_reqs"] = {}
+
+        experiences = vacancies.experiences()
+
+        for experience in experiences:
+            result["experience_reqs"][experience] = (result["experience_reqs"][experience] + 1) if experience in result["experience_reqs"] else 1
+
+        if sort_desc:
+            result["experience_reqs"] = dict(sorted(result["experience_reqs"].items(), key=lambda item: item[1], reverse=True))
 
         return result

@@ -24,10 +24,11 @@ class Server:
         body: List[dict] = Converter.to_object(body)
         vacancies = self.vacancies.from_json(body)
         results = self.analyser.analyse(vacancies,
-                                        avg_salary=True,
-                                        cities=True,
+                                        avg_salary=False,
+                                        cities=False,
                                         descriptions=False,
-                                        skills=True)
+                                        skills=True,
+                                        experience_reqs=True)
         results = Converter.from_object(results)
 
         await send({

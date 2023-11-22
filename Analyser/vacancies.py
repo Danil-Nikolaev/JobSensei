@@ -37,7 +37,12 @@ class Vacancy:
 
     def skills(self) -> list | None:
         if "key_skills" in self.vacancy and self.vacancy["key_skills"] is not None:
-            return [skill["name"] for skill in self.vacancy["key_skills"]]
+            return [skill["name"].lower() for skill in self.vacancy["key_skills"]]
+        return None
+
+    def experience(self) -> str | None:
+        if "experience" in self.vacancy and self.vacancy["experience"] is not None:
+            return self.vacancy["experience"]["id"]
         return None
 
 
@@ -73,6 +78,10 @@ class Vacancies:
         result = [vacancy.city() for vacancy in self.vacancies]
         return result
 
-    def skills(self) -> List[dict]:
+    def skills(self) -> List[list]:
         result = [vacancy.skills() for vacancy in self.vacancies]
+        return result
+
+    def experiences(self) -> List[str]:
+        result = [vacancy.experience() for vacancy in self.vacancies]
         return result
