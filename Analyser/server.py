@@ -25,10 +25,11 @@ class Server:
         vacancies = self.vacancies.from_json(body)
         results = self.analyser.analyse(vacancies,
                                         avg_salary=False,
-                                        cities=False,
+                                        cities=True,
                                         descriptions=False,
-                                        skills=True,
-                                        experience_reqs=True)
+                                        skills=False,
+                                        experiences=False,
+                                        skills_by_experience=False)
         results = Converter.from_object(results)
 
         await send({

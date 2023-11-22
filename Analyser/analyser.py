@@ -8,7 +8,8 @@ class Analyser:
                 cities=False,
                 descriptions=False,
                 skills=False,
-                experience_reqs=False) -> dict:
+                experiences=False,
+                skills_by_experience=False) -> dict:
 
         result = {}
 
@@ -20,8 +21,10 @@ class Analyser:
             result.update(self.cities(vacancies))
         if skills:
             result.update(self.skills(vacancies))
-        if experience_reqs:
-            result.update(self.experience_reqs(vacancies))
+        if experiences:
+            result.update(self.experiences(vacancies))
+        if skills_by_experience:
+            result.update(self.skills_by_experience(vacancies, most_required=10))
 
         return result
 
@@ -56,7 +59,8 @@ class Analyser:
         cities = vacancies.cities()
 
         for city in cities:
-            result["cities"][city] = (result["cities"][city] + 1) if city in result["cities"] else 1
+            if city is not None:
+                result["cities"][city] = (result["cities"][city] + 1) if city in result["cities"] else 1
 
         if sort_desc:
             result["cities"] = dict(sorted(result["cities"].items(), key=lambda item: item[1], reverse=True))
@@ -79,16 +83,46 @@ class Analyser:
 
         return result
 
-    def experience_reqs(self, vacancies: Vacancies, sort_desc=True) -> Dict[str, dict]:
+    def experiences(self, vacancies: Vacancies, sort_desc=True) -> Dict[str, dict]:
         result = {}
-        result["experience_reqs"] = {}
+        result["experiences"] = {}
 
         experiences = vacancies.experiences()
 
         for experience in experiences:
-            result["experience_reqs"][experience] = (result["experience_reqs"][experience] + 1) if experience in result["experience_reqs"] else 1
+            if experience is not None:
+                result["experiences"][experience] = (result["experiences"][experience] + 1) if experience in result["experiences"] else 1
 
         if sort_desc:
-            result["experience_reqs"] = dict(sorted(result["experience_reqs"].items(), key=lambda item: item[1], reverse=True))
+            result["experiences"] = dict(sorted(result["experiences"].items(), key=lambda item: item[1], reverse=True))
+
+        return result
+
+    def skills_by_experience(self, vacancies: Vacancies, most_required=0) -> Dict[str, dict]:
+        result = {}
+        result["skills_by_experience"] = {}
+        result["skills_by_experience"]["noExperience"] = {}
+        result["skills_by_experience"]["between1And3"] = {}
+        result["skills_by_experience"]["between3And6"] = {}
+        result["skills_by_experience"]["moreThan6"] = {}
+
+        skills_and_experiences = zip(vacancies.skills(), vacancies.experiences())
+
+        for skills, experience in skills_and_experiences:
+            if skills is not None and experience is not None:
+                for skill in skills:
+                    if skill in result["skills_by_experience"][experience]:
+                        result["skills_by_experience"][experience][skill] += 1
+                    else:
+                        result["skills_by_experience"][experience][skill] = 1
+
+        if most_required:
+            for experience in result["skills_by_experience"].keys():
+                result["skills_by_experience"][experience] = dict(sorted(result["skills_by_experience"][experience].items(), key=lambda item: item[1], reverse=True))
+
+            for experience in result["skills_by_experience"].keys():
+                for i, skill in enumerate(list(result["skills_by_experience"][experience])):
+                    if i >= most_required:
+                        del result["skills_by_experience"][experience][skill]
 
         return result
