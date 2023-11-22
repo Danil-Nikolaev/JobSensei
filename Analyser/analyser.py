@@ -3,13 +3,22 @@ from vacancies import Vacancies
 
 
 class Analyser:
-    def analyse(self, vacancies: Vacancies, avg_salary=False, cities=False) -> dict:
+    def analyse(self, vacancies: Vacancies,
+                avg_salary=False,
+                cities=False,
+                descriptions=False,
+                skills=False) -> dict:
+
         result = {}
 
         if avg_salary:
             result.update(self.avg_salary(vacancies))
         if cities:
             result.update(self.cities(vacancies))
+        if descriptions:
+            result.update(self.descriptions(vacancies))
+        if skills:
+            result.update(self.skills(vacancies))
 
         return result
 
@@ -37,11 +46,34 @@ class Analyser:
         result["cities"] = {}
 
         cities = vacancies.cities()
+        print(len(cities))
 
         for city in cities:
             result["cities"][city] = (result["cities"][city] + 1) if city in result["cities"] else 1
 
         if sort_desc:
             result["cities"] = dict(sorted(result["cities"].items(), key=lambda item: item[1], reverse=True))
+
+        return result
+
+    def descriptions(self, vacancies: Vacancies) -> Dict[str, list]:
+        result = {}
+        result["descriptions"] = vacancies.descriptions()
+        return result
+
+    def skills(self, vacancies: Vacancies, sort_desc=True) -> Dict[str, dict]:
+        result = {}
+        result["skills"] = {}
+
+        skills = vacancies.skills()
+        print(len(skills))
+
+        for vacancy_skills in skills:
+            if vacancy_skills is not None:
+                for skill in vacancy_skills:
+                    result["skills"][skill] = (result["skills"][skill] + 1) if skill in result["skills"] else 1
+
+        if sort_desc:
+            result["skills"] = dict(sorted(result["skills"].items(), key=lambda item: item[1], reverse=True))
 
         return result

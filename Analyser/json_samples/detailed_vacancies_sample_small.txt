@@ -1,0 +1,220 @@
+[
+    {
+        "id": "89706006",
+        "premium": false,
+        "billing_type": {
+            "id": "standard_plus",
+            "name": "Стандарт плюс"
+        },
+        "relations": [],
+        "name": "JAVA Developer (junior)",
+        "insider_interview": null,
+        "response_letter_required": false,
+        "area": {
+            "id": "4",
+            "name": "Новосибирск",
+            "url": "https://api.hh.ru/areas/4"
+        },
+        "salary": {
+            "from": 65000,
+            "to": 110000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Новосибирск",
+            "street": "Советский район, микрорайон Академгородок, улица Николаева",
+            "building": "11",
+            "lat": 54.858025,
+            "lng": 83.110567,
+            "description": null,
+            "raw": "Новосибирск, Советский район, микрорайон Академгородок, улица Николаева, 11",
+            "metro": null,
+            "metro_stations": []
+        },
+        "allow_messages": true,
+        "experience": {
+            "id": "between1And3",
+            "name": "От 1 года до 3 лет"
+        },
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "department": null,
+        "contacts": null,
+        "description": "<p>Мы - компания «Динамика» - разработчик программного обеспечения для финансового сектора.</p> <p><strong>РАССМАТРИВАЕМ КАНДИДАТОВ ДЛЯ РАБОТЫ В НОВОСИБИРСКЕ</strong></p> <p><strong>Обязанности:</strong></p> <ul> <li>Разработка и настройка приложений в low code системе</li> <li>Разработка нового функционала под контролем ментора.</li> </ul> <p><strong>Требования:</strong></p> <ul> <li>опыт коммерческой разработки на JAVА SE от 1 года;</li> <li>понимание принципов ООП, понимание алгоритмов и структур данных, знание Java Core;</li> <li>представление о реляционных базах данных (Oracle, MySQL, PostgreSQL и др.);</li> <li>Знание Spring framework будет преимуществом;</li> <li>Профильное высшее образование.</li> </ul> <p><strong>Мы предлагаем:</strong></p> <ul> <li>Работа в Технопарке или гибрид (часть рабочей недели - дистанционно)</li> <li>Официальное трудоустройство</li> <li>Перспектива профессионального и карьерного развития</li> <li>Корпоративные развлекательные программы</li> </ul> <p><strong>А ещё:</strong></p> <p>Помимо работы, нас объединяет любовь к морю и всему прекрасному. Несколько раз в год мы проводим корпоративные выездные мероприятия в различные города и страны, участвуем в парусных регатах и просто хорошо проводим время.</p>",
+        "branded_description": null,
+        "vacancy_constructor_template": null,
+        "key_skills": [
+            {
+                "name": "Java"
+            },
+            {
+                "name": "HTML"
+            },
+            {
+                "name": "ООП"
+            },
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "accept_handicapped": false,
+        "accept_kids": false,
+        "archived": false,
+        "response_url": null,
+        "specializations": [],
+        "professional_roles": [
+            {
+                "id": "96",
+                "name": "Программист, разработчик"
+            }
+        ],
+        "code": null,
+        "hidden": false,
+        "quick_responses_allowed": false,
+        "driver_license_types": [],
+        "accept_incomplete_resumes": false,
+        "employer": {
+            "id": "2166518",
+            "name": "Динамика",
+            "url": "https://api.hh.ru/employers/2166518",
+            "alternate_url": "https://hh.ru/employer/2166518",
+            "logo_urls": {
+                "240": "https://hhcdn.ru/employer-logo/5490825.png",
+                "90": "https://hhcdn.ru/employer-logo/5490824.png",
+                "original": "https://hhcdn.ru/employer-logo-original/967928.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2166518",
+            "accredited_it_employer": false,
+            "trusted": true
+        },
+        "published_at": "2023-11-21T07:59:37+0300",
+        "created_at": "2023-11-21T07:59:37+0300",
+        "initial_created_at": "2023-11-21T07:59:37+0300",
+        "negotiations_url": null,
+        "suitable_resumes_url": null,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=89706006",
+        "has_test": false,
+        "test": null,
+        "alternate_url": "https://hh.ru/vacancy/89706006",
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "languages": []
+    },
+    {
+        "id": "89617996",
+        "premium": false,
+        "billing_type": {
+            "id": "standard",
+            "name": "Стандарт"
+        },
+        "relations": [],
+        "name": "Junior Java Разработчик",
+        "insider_interview": null,
+        "response_letter_required": false,
+        "area": {
+            "id": "79",
+            "name": "Саратов",
+            "url": "https://api.hh.ru/areas/79"
+        },
+        "salary": {
+            "from": 35000,
+            "to": 35000,
+            "currency": "RUR",
+            "gross": true
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": null,
+        "allow_messages": true,
+        "experience": {
+            "id": "noExperience",
+            "name": "Нет опыта"
+        },
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "department": null,
+        "contacts": null,
+        "description": "<p><strong>Кого ищем?</strong></p> <p>Мы сейчас ищем Junior Java разработчика, рассматриваем также и выпускников курсов ИТ, но в идеале от 6 месяцев коммерческого опыта.</p> <p>Основные требования:</p> <p>1.<strong> Важно прикладывать к отклику ссылку на github или иной другой сервис, где мы сможем ознакомиться с примерами вашего кода и пет-проектами;</strong></p> <p>2. Отличные софт-скиллы и высокий уровень обучаемости;</p> <p>3. На данный момент ищем сотрудников именно в <strong>Саратове, Самаре, Тольятти, Казани и Ульяновске, Краснодаре </strong>(на выбор офис, удаленка или гибрид).</p> <p><strong>Что мы предлагаем:</strong></p> <ul> <li>Гибкий график работы, который позволяет выспаться;</li> <li>Белоснежные условия - оформление по ТК РФ, белая зарплата, отпускные и больничный;</li> <li>Наличие ментора на период адаптации, выстроенные бизнес-процессы;</li> <li>Гибкая система бонусов, которая настраивается под индивидуальные потребности: различные уровни ДМС, абонементы на занятия спортом или помощь в покупке любой техники;</li> <li>Бесплатный английский с первого месяца работы;</li> <li> <p>Актуальный стек и широкий выбор проектов (более 130 проектов в работе);</p> </li> <li> <p>Возможность прокачивать Hard и Soft-skills: участие в митапах, возможность стать ментором, корпоративная школа «Тим-лидов» и «Архитекторов»;</p> </li> <li> <p>Работа над проектом от 6 мес. до нескольких лет (с возможностью смены проекта или стека технологий в рамках компании);</p> </li> <li> <p>Возможность прокачаться в разных направлениях разработки.</p> </li> <li> <p>Мы заботимся о своих сотрудниках, поэтому в настоящий момент работаем в формате хоум-офис (удаленно), в городах присутствия есть возможность работать удаленно, в офисе или гибридно.</p> <p>Приходи в SimbirSoft за прокачкой хард-скилов и интересными проектами!</p> <p>Знаешь кого-то, кто идеально сможет подойти? Расскажи им о нашей вакансии!</p> </li> <li>Льготы и меры господдержки, предусмотренные для IT-компаний (аккредитованы Минцифры*)</li> </ul> <p><em>* Решение Министерства цифрового развития, связи и массовых коммуникаций РФ о предоставлении государственной аккредитации организации, осуществляющей деятельность в области информационных технологий от 10.03.2022 №АО-20220309-3771014210-3</em></p> <p>Приходи в SimbirSoft за прокачкой хард-скилов и интересными проектами!</p> <p>Знаешь кого-то, кто идеально сможет подойти? Расскажи им о нашей вакансии!</p>",
+        "branded_description": "\n        <style>\n        .tmpl_hh_wrapper p,\n        .tmpl_hh_wrapper a,\n        .tmpl_hh_wrapper img,\n        .tmpl_hh_wrapper ol,\n        .tmpl_hh_wrapper ul,\n        .tmpl_hh_wrapper li {\n            margin: 0;\n            padding: 0;\n            border: 0;\n            font-size: 100%;\n            font: inherit;\n            vertical-align: baseline;\n        }\n        \n        .hht-vacancydescription {\n            padding: 0px;\n        }\n        \n        .tmpl_hh_wrapper .l-cell,\n        .tmpl_hh_wrapper .l-paddings {\n            padding: 0px !important;\n        }\n        \n        .tmpl_hh_wrapper .b-vacancy-desc-wrapper {\n            margin-top: 0px !important;    \n        }\n        \n        .tmpl_hh_wrapper .b-vacancy-desc {\n            overflow: visible !important;\n            line-height: inherit;\n        }\n        \n        .tmpl_hh_content ol li b,\n        .tmpl_hh_content ol li strong,\n        .tmpl_hh_content ol li p b,\n        .tmpl_hh_content ol li p strong,\n        .tmpl_hh_content ul li b,\n        .tmpl_hh_content ul li strong,\n        .tmpl_hh_content ul li p b,\n        .tmpl_hh_content ul li p strong {\n            font-weight: normal;\n            font-size: inherit !important;\n            color: inherit !important;\n            margin: 0 !important;\n            text-transform: none;\n            line-height: inherit;\n        }\n        \n        .tmpl_hh_content ol li p,\n        .tmpl_hh_content ul li p {\n            font-weight: normal;\n            margin: 0;\n        }\n        \n        .tmpl_hh_content p b,\n        .tmpl_hh_content p strong {\n            display: inline;\n            margin: 0;\n        }\n        \n        .tmpl_hh_wrapper {\n            width: 100%;\n            margin: 0 auto;\n            max-width: 690px;\n            position: relative;\n            word-break: normal;\n            overflow: hidden;\n            font-family: 'Proxima Nova Condensed', ProximaNovaCond, 'Arial', sans-serif;\n            font-size: 18px;\n            line-height: 23px;\n            color: #000;\n            z-index: 1;\n        }\n        \n        .tmpl_hh_wrapper img {\n            width: 100%;\n            display: block;\n            -webkit-user-select: none;\n            -moz-user-select: none;\n            -ms-user-select: none;\n            user-select: none;\n        }\n        \n        .tmpl_hh_content {\n            padding: 53px 40px 16px;\n            position: relative;\n            z-index: 1;\n        }\n        \n        .tmpl_hh_content p:first-child,\n        .tmpl_hh_content>strong:first-child,\n        .tmpl_hh_content div>strong:first-child {\n            margin-top: 0 !important;\n        }\n        \n        .tmpl_hh_content p,\n        .tmpl_hh_content b,\n        .tmpl_hh_content strong {\n           margin: 30px 0 16px;\n        }\n        \n        .tmpl_hh_content b, \n        .tmpl_hh_content strong {\n            display: inline-block;\n            font-weight: bold;\n            font-size: 22px;\n            line-height: 26px;\n        }\n        \n        .tmpl_hh_content ol,\n        .tmpl_hh_content ul {\n            margin-left: 24px;\n            list-style: none !important;\n        }\n        \n        .tmpl_hh_content ol {\n            counter-reset: list_counter;\n        }\n        \n        .tmpl_hh_content li {\n            position: relative;\n            margin-bottom: 12px;\n        }\n        \n        .tmpl_hh_content ul ul,\n        .tmpl_hh_content ul ol,\n        .tmpl_hh_content ol ol,\n        .tmpl_hh_content ol ul {\n            margin-top: 12px;\n        }\n        \n        .tmpl_hh_content ol>li {\n            counter-increment: list_counter;    \n        }\n        \n        .tmpl_hh_content li:before {\n            position: absolute;\n            left: -24px;\n            top: 0;\n        }\n        \n        .tmpl_hh_content ul>li:before {\n            content: \"—\";\n        }\n        \n        .tmpl_hh_content ol>li:before {\n            content: counter(list_counter)'.';\n            left: auto;\n            right: 100%;\n            margin-right: 2px;\n        }\n        \n        .tmpl_hh_flex {\n            display: -webkit-box;\n            display: -ms-flexbox;\n            display: flex;\n            -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n            justify-content: space-between;\n            -ms-flex-wrap: wrap;\n            flex-wrap: wrap;\n        }\n        \n        .tmpl_hh_top {\n            font-weight: 600;\n            font-size: 16px;\n            line-height: 19px;\n            letter-spacing: 0.05em;\n            margin: 0px 40px;\n            padding: 29px 0 25px;\n            border-bottom: 1px solid rgba(0,0,0,0.1);\n        }\n        \n        .tmpl_hh_header {\n            padding: 74px 40px 74px;\n            position: relative;\n        }\n        \n        p.tmpl_hh_header__slogan {\n            font-weight: 600;\n            font-size: 22px;\n            line-height: 27px;\n            color: #3C3C3C;\n            width: 50%;\n        }\n        \n        .tmpl_hh_header__photo {\n            position: absolute;\n            right: 40px;\n            top: 20px;\n            width: 46%;\n        }\n        \n        .tmpl_hh_numbers {\n            position: relative;\n            background: url(https://hhcdn.ru/ichameleon/217409.png);\n            background-size: cover;\n            padding: 50px 34px 45px 40px;\n        }\n        \n        .tmpl_hh_numbers__item {\n            width: calc(25% - 10px);\n            font-size: 18px;\n            line-height: 20px;\n            color: #FFFFFF;\n        }\n        \n        /* .tmpl_hh_numbers__item--2 {\n            width: 27.33%;\n        } */\n        \n        .tmpl_hh_numbers__icon {\n            width: 67px;\n            height: 81px;\n            margin-bottom: 19px;\n            position: relative;\n        }\n        \n        .tmpl_hh_numbers__icon img {\n            width: auto;\n            position: relative;\n            top: 0;\n        }\n        \n        .tmpl_hh_numbers__item--2  .tmpl_hh_numbers__icon img {\n            left: 4px;\n        }\n        \n        .tmpl_hh_numbers__item--0  .tmpl_hh_numbers__icon img,\n        .tmpl_hh_numbers__item--3  .tmpl_hh_numbers__icon img {\n            top: 11px;\n        }\n        \n        .tmpl_hh_numbers__item span {\n            font-size: 48px;\n            line-height: 58px;\n            color: #187FFD;\n            display: block;\n            margin-bottom: 4px;\n        }\n        \n        .tmpl_hh_benefits {\n            background: url(https://hhcdn.ru/ichameleon/217410.png);\n            background-size: cover;\n            color: #fff;\n            padding: 63px 43px 36px;\n            font-size: 20px;\n            line-height: 28px;\n        }\n        \n        p.tmpl_hh_benefits__title {\n            font-size: 42px;\n            line-height: 84.8%;\n            margin-bottom: 55px;\n        }\n        \n        .tmpl_hh_benefits__column {\n            width: 45%;\n        }\n        \n        .tmpl_hh_benefits__item {\n            position: relative;\n            box-sizing: border-box;\n            padding: 0 7px 0 45px;\n            min-height: 113px;\n        }\n        \n        .tmpl_hh_benefits__icon {\n            position: absolute;\n            left: -3px;\n            top: 0;\n        }\n        \n        @media screen and (max-width: 1019px) {\n            .tmpl_hh_benefits {\n                font-size: 18px;\n                line-height: 26px;\n            }\n        \n            p.tmpl_hh_header__slogan {\n                font-size: 20px;\n                line-height: 25px;\n            }\n        }\n        \n        @media screen and (max-width: 699px) {\n            .tmpl_hh_top {\n                font-size: 14px;\n                line-height: 17px;\n                margin: 0px 0px;\n                padding: 29px 0 0;\n                border-bottom: none;\n            }\n        \n            .tmpl_hh_header {\n                padding: 17px 0px 32px;\n            }\n        \n            .tmpl_hh_header__photo {\n                position: relative;\n                right: 0;\n                top: 0;\n                margin: 0 auto 27px;\n                width: 99%;\n            }\n        \n            .tmpl_hh_numbers {\n                background: url(https://hhcdn.ru/ichameleon/217422.png);\n                background-size: cover;\n                padding: 51px 23px 1px;\n            }    \n        \n            p.tmpl_hh_header__slogan {\n                width: 100%;\n                font-size: 28px;\n                line-height: 30px;\n            }\n        \n            .tmpl_hh_numbers__item {\n                width: calc(50% - 10px);\n                margin-bottom: 39px;\n            }\n\n        \n            .tmpl_hh_content {\n                padding: 39px 0px 10px;\n            }\n        \n            .tmpl_hh_benefits {\n                background: url(https://hhcdn.ru/ichameleon/217423.png);\n                background-size: cover;\n                padding: 50px 26px 14px;\n                font-size: 14px;\n                line-height: 19px;\n            }\n        \n            p.tmpl_hh_benefits__title {\n                font-size: 30px;\n                line-height: 84.8%;\n                margin-bottom: 39px;\n            }\n        \n            .tmpl_hh_benefits__columns {\n                margin: 0 6px;\n            }\n        \n            .tmpl_hh_benefits__column {\n                width: 100%;\n            }\n        \n            .tmpl_hh_benefits__item {\n                padding: 0 7px 0 45px;\n                min-height: auto;\n                margin-bottom: 34px;\n            }\n        }    \n\n        @media screen and (max-width: 380px) {\n            .tmpl_hh_numbers__item {\n                width: 88%;\n                font-size: 14px;\n                line-height: 18px;\n                position: relative;\n                margin-bottom: 39px;\n            }\n        \n            .tmpl_hh_numbers__item--2 {\n                width: 76.33%;\n            }\n        \n            .tmpl_hh_numbers__icon {\n                width: 67px;\n                height: 81px;\n                margin-bottom: 19px;\n                position: absolute;\n                top: -13px;\n                left: 0;\n            }\n        \n            .tmpl_hh_numbers__item span {\n                font-size: 48px;\n                line-height: 58px;\n                margin-bottom: 4px;\n                padding: 0 0 0 69px;\n            }\n        \n            .tmpl_hh_numbers__icon img {\n                position: relative;\n                top: 1px;\n                left: 2px;\n                width: 50px;\n            }\n        \n            .tmpl_hh_numbers__item--2 .tmpl_hh_numbers__icon img {\n                left: 2px;\n                width: 53px;\n                top: 9px;\n            }\n        \n            .tmpl_hh_numbers__item--3 .tmpl_hh_numbers__icon img {\n                top: 10px;\n                width: 52px;\n            }\n        }\n        </style>\n        \n        <div class=\"tmpl_hh_wrapper\">\n            <div class=\"tmpl_hh_top\">\n                <div class=\"tmpl_hh_top__logo\">IT COMPANY THAT CARES</div>\n            </div>\n            <div class=\"tmpl_hh_header\">\n                <div class=\"tmpl_hh_header__photo\"><img src=\"https://hhcdn.ru/ichameleon/217419.svg\" alt=\"\"></div>\n                <p class=\"tmpl_hh_header__slogan\">SimbirSoft — это более 1300 профессионалов, увлеченных разработкой и IT-технологиями</p>\n            </div>\n            <div class=\"tmpl_hh_numbers tmpl_hh_flex\">\n                \n                <div class=\"tmpl_hh_numbers__item tmpl_hh_numbers__item--0\">\n                    <div class=\"tmpl_hh_numbers__icon\"><img src=\"https://hhcdn.ru/ichameleon/217406.svg\" alt=\"\"></div>\n                    <p class=\"tmpl_hh_numbers__text\"><span>Мы</span>аккредитованная IT‑компания</p>\n                </div>\n                <div class=\"tmpl_hh_numbers__item tmpl_hh_numbers__item--1\">\n                    <div class=\"tmpl_hh_numbers__icon\"><img src=\"https://hhcdn.ru/ichameleon/217407.svg\" alt=\"\"></div>\n                    <p class=\"tmpl_hh_numbers__text\"><span>22 года</span>разрабатываем уникальные программные решения, начиная с 2001 года</p>\n                </div>\n                <div class=\"tmpl_hh_numbers__item tmpl_hh_numbers__item--2\">\n                    <div class=\"tmpl_hh_numbers__icon\"><img src=\"https://hhcdn.ru/ichameleon/217405.svg\" alt=\"\"></div>\n                    <p class=\"tmpl_hh_numbers__text\"><span>1300+</span>опытных IT-специалистов выбрали работу у нас</p>\n                </div>\n                <div class=\"tmpl_hh_numbers__item tmpl_hh_numbers__item--3\">\n                    <div class=\"tmpl_hh_numbers__icon\"><img src=\"https://hhcdn.ru/ichameleon/217406.svg\" alt=\"\"></div>\n                    <p class=\"tmpl_hh_numbers__text\"><span>700</span>клиентов, чьи отзывы подтверждают обеспечение результата и надежность</p>\n                </div>\n            </div>\n            <div class=\"tmpl_hh_content\">\n               <p><strong>Кого ищем?</strong></p> <p>Мы сейчас ищем Junior Java разработчика, рассматриваем также и выпускников курсов ИТ, но в идеале от 6 месяцев коммерческого опыта.</p> <p>Основные требования:</p> <p>1.<strong> Важно прикладывать к отклику ссылку на github или иной другой сервис, где мы сможем ознакомиться с примерами вашего кода и пет-проектами;</strong></p> <p>2. Отличные софт-скиллы и высокий уровень обучаемости;</p> <p>3. На данный момент ищем сотрудников именно в <strong>Саратове, Самаре, Тольятти, Казани и Ульяновске, Краснодаре </strong>(на выбор офис, удаленка или гибрид).</p> <p><strong>Что мы предлагаем:</strong></p> <ul> <li>Гибкий график работы, который позволяет выспаться;</li> <li>Белоснежные условия - оформление по ТК РФ, белая зарплата, отпускные и больничный;</li> <li>Наличие ментора на период адаптации, выстроенные бизнес-процессы;</li> <li>Гибкая система бонусов, которая настраивается под индивидуальные потребности: различные уровни ДМС, абонементы на занятия спортом или помощь в покупке любой техники;</li> <li>Бесплатный английский с первого месяца работы;</li> <li> <p>Актуальный стек и широкий выбор проектов (более 130 проектов в работе);</p> </li> <li> <p>Возможность прокачивать Hard и Soft-skills: участие в митапах, возможность стать ментором, корпоративная школа «Тим-лидов» и «Архитекторов»;</p> </li> <li> <p>Работа над проектом от 6 мес. до нескольких лет (с возможностью смены проекта или стека технологий в рамках компании);</p> </li> <li> <p>Возможность прокачаться в разных направлениях разработки.</p> </li> <li> <p>Мы заботимся о своих сотрудниках, поэтому в настоящий момент работаем в формате хоум-офис (удаленно), в городах присутствия есть возможность работать удаленно, в офисе или гибридно.</p> <p>Приходи в SimbirSoft за прокачкой хард-скилов и интересными проектами!</p> <p>Знаешь кого-то, кто идеально сможет подойти? Расскажи им о нашей вакансии!</p> </li> <li>Льготы и меры господдержки, предусмотренные для IT-компаний (аккредитованы Минцифры*)</li> </ul> <p><em>* Решение Министерства цифрового развития, связи и массовых коммуникаций РФ о предоставлении государственной аккредитации организации, осуществляющей деятельность в области информационных технологий от 10.03.2022 №АО-20220309-3771014210-3</em></p> <p>Приходи в SimbirSoft за прокачкой хард-скилов и интересными проектами!</p> <p>Знаешь кого-то, кто идеально сможет подойти? Расскажи им о нашей вакансии!</p></div>\n            <div class=\"tmpl_hh_benefits\">\n                <p class=\"tmpl_hh_benefits__title\">Преимущества работы у нас</p>\n                <div class=\"tmpl_hh_benefits__columns tmpl_hh_flex\">\n                    <div class=\"tmpl_hh_benefits__column\">\n                        <div class=\"tmpl_hh_benefits__item\">\n                            <div class=\"tmpl_hh_benefits__icon\"><img src=\"https://hhcdn.ru/ichameleon/217404.svg\" alt=\"\"></div>\n                            <p class=\"tmpl_hh_benefits__text\">Удаленка в РФ, гибкий график, уютные офисы</p>\n                        </div>\n                        <div class=\"tmpl_hh_benefits__item\">\n                            <div class=\"tmpl_hh_benefits__icon\"><img src=\"https://hhcdn.ru/ichameleon/217404.svg\" alt=\"\"></div>\n                            <p class=\"tmpl_hh_benefits__text\">Белая зарплата, полный соцпакет, система бонусов </p>\n                        </div>\n                        <div class=\"tmpl_hh_benefits__item\">\n                            <div class=\"tmpl_hh_benefits__icon\"><img src=\"https://hhcdn.ru/ichameleon/217404.svg\" alt=\"\"></div>\n                            <p class=\"tmpl_hh_benefits__text\">Обучение и сертификация за счет компании, изучение английского языка</p>\n                        </div>\n                    </div>\n                    <div class=\"tmpl_hh_benefits__column\">\n                        <div class=\"tmpl_hh_benefits__item\">\n                            <div class=\"tmpl_hh_benefits__icon\"><img src=\"https://hhcdn.ru/ichameleon/217404.svg\" alt=\"\"></div>\n                            <p class=\"tmpl_hh_benefits__text\">Широкий современный стек</p>\n                        </div>\n                        <div class=\"tmpl_hh_benefits__item\">\n                            <div class=\"tmpl_hh_benefits__icon\"><img src=\"https://hhcdn.ru/ichameleon/217404.svg\" alt=\"\"></div>\n                            <p class=\"tmpl_hh_benefits__text\">Комфортное погружение в работу, забота ментора с первых дней</p>\n                        </div>\n                        <div class=\"tmpl_hh_benefits__item\">\n                            <div class=\"tmpl_hh_benefits__icon\"><img src=\"https://hhcdn.ru/ichameleon/217404.svg\" alt=\"\"></div>\n                            <p class=\"tmpl_hh_benefits__text\">Яркая корпоративная жизнь: онлайн- и офлайн-события</p>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div> \n        \n        ",
+        "vacancy_constructor_template": null,
+        "key_skills": [
+            {
+                "name": "Java"
+            },
+            {
+                "name": "Spring Framework"
+            },
+            {
+                "name": "ООП"
+            },
+            {
+                "name": "MySQL"
+            }
+        ],
+        "accept_handicapped": false,
+        "accept_kids": false,
+        "archived": false,
+        "response_url": null,
+        "specializations": [],
+        "professional_roles": [
+            {
+                "id": "96",
+                "name": "Программист, разработчик"
+            }
+        ],
+        "code": null,
+        "hidden": false,
+        "quick_responses_allowed": false,
+        "driver_license_types": [],
+        "accept_incomplete_resumes": false,
+        "employer": {
+            "id": "668019",
+            "name": "СимбирСофт",
+            "url": "https://api.hh.ru/employers/668019",
+            "alternate_url": "https://hh.ru/employer/668019",
+            "logo_urls": {
+                "240": "https://hhcdn.ru/employer-logo/5735085.png",
+                "90": "https://hhcdn.ru/employer-logo/5735084.png",
+                "original": "https://hhcdn.ru/employer-logo-original/1028581.png"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=668019",
+            "accredited_it_employer": true,
+            "trusted": true
+        },
+        "published_at": "2023-11-17T21:21:03+0300",
+        "created_at": "2023-11-17T21:21:03+0300",
+        "initial_created_at": "2023-11-17T21:21:03+0300",
+        "negotiations_url": null,
+        "suitable_resumes_url": null,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=89617996",
+        "has_test": false,
+        "test": null,
+        "alternate_url": "https://hh.ru/vacancy/89617996",
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "languages": []
+    }
+]

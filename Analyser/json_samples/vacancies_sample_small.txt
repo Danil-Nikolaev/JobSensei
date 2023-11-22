@@ -1,0 +1,201 @@
+[
+    {
+        "id": "89654060",
+        "premium": false,
+        "name": "Шеф-повар",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "1",
+            "name": "Москва",
+            "url": "https://api.hh.ru/areas/1"
+        },
+        "salary": {
+            "from": 170000,
+            "to": 200000,
+            "currency": "RUR",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Москва",
+            "street": "Скаковая улица",
+            "building": "36",
+            "lat": 55.776573,
+            "lng": 37.573851,
+            "description": null,
+            "raw": "Москва, Скаковая улица, 36",
+            "metro": {
+                "station_name": "Белорусская",
+                "line_name": "Замоскворецкая",
+                "station_id": "2.19",
+                "line_id": "2",
+                "lat": 55.777439,
+                "lng": 37.582107
+            },
+            "metro_stations": [
+                {
+                    "station_name": "Белорусская",
+                    "line_name": "Замоскворецкая",
+                    "station_id": "2.19",
+                    "line_id": "2",
+                    "lat": 55.777439,
+                    "lng": 37.582107
+                },
+                {
+                    "station_name": "Белорусская",
+                    "line_name": "Кольцевая",
+                    "station_id": "5.20",
+                    "line_id": "5",
+                    "lat": 55.775179,
+                    "lng": 37.582303
+                }
+            ],
+            "id": "11661403"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2023-11-20T10:48:14+0300",
+        "created_at": "2023-11-20T10:48:14+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=89654060",
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/89654060?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/89654060",
+        "relations": [],
+        "employer": {
+            "id": "9011727",
+            "name": "Moscow Food",
+            "url": "https://api.hh.ru/employers/9011727",
+            "alternate_url": "https://hh.ru/employer/9011727",
+            "logo_urls": null,
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=9011727",
+            "accredited_it_employer": false,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Опыт работы в программе iiko. Опыт работы шеф-<highlighttext>поваром</highlighttext> не менее 3-5 лет. Опыт управления коллективом от 25 человек. ",
+            "responsibility": "Руководство коллективом кухни. Полная ответственность за производство. Внедрение и поддержание стандартов производства. Разработка меню. Инвентаризация. Контроль соблюдения санитарных норм, технологии..."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "professional_roles": [
+            {
+                "id": "94",
+                "name": "Повар, пекарь, кондитер"
+            }
+        ],
+        "accept_incomplete_resumes": false,
+        "experience": {
+            "id": "between3And6",
+            "name": "От 3 до 6 лет"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "adv_response_url": null,
+        "is_adv_vacancy": false
+    },
+    {
+        "id": "89344573",
+        "premium": false,
+        "name": "Повар",
+        "department": null,
+        "has_test": false,
+        "response_letter_required": false,
+        "area": {
+            "id": "159",
+            "name": "Астана",
+            "url": "https://api.hh.ru/areas/159"
+        },
+        "salary": {
+            "from": 180000,
+            "to": 300000,
+            "currency": "KZT",
+            "gross": false
+        },
+        "type": {
+            "id": "open",
+            "name": "Открытая"
+        },
+        "address": {
+            "city": "Астана",
+            "street": "микрорайон Юго-Восток (правая сторона), улица Обаган",
+            "building": "10",
+            "lat": 51.140211,
+            "lng": 71.509032,
+            "description": null,
+            "raw": "Астана, микрорайон Юго-Восток (правая сторона), улица Обаган, 10",
+            "metro": null,
+            "metro_stations": [],
+            "id": "14322706"
+        },
+        "response_url": null,
+        "sort_point_distance": null,
+        "published_at": "2023-11-13T07:23:03+0300",
+        "created_at": "2023-11-13T07:23:03+0300",
+        "archived": false,
+        "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=89344573",
+        "show_logo_in_search": null,
+        "insider_interview": null,
+        "url": "https://api.hh.ru/vacancies/89344573?host=hh.ru",
+        "alternate_url": "https://hh.ru/vacancy/89344573",
+        "relations": [],
+        "employer": {
+            "id": "2976208",
+            "name": "Ели-худели, ТМ (ИП Юлия)",
+            "url": "https://api.hh.ru/employers/2976208",
+            "alternate_url": "https://hh.ru/employer/2976208",
+            "logo_urls": {
+                "240": "https://hhcdn.ru/employer-logo/4104356.jpeg",
+                "90": "https://hhcdn.ru/employer-logo/4104355.jpeg",
+                "original": "https://hhcdn.ru/employer-logo-original/915919.jpg"
+            },
+            "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2976208",
+            "accredited_it_employer": false,
+            "trusted": true
+        },
+        "snippet": {
+            "requirement": "Соблюдение правил хранения сырья и готовых изделий. Можно без опыта работы. Внимательность. Скорость. Пунктуальность. Умение вкусно готовить.",
+            "responsibility": "Приготовление горячих блюд. Приготовление холодных блюд. Поддержание чистоты кухни. Знание технических процессов. Знание обработки овощей и фруктов. Знание условия хранения..."
+        },
+        "contacts": null,
+        "schedule": {
+            "id": "fullDay",
+            "name": "Полный день"
+        },
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": false,
+        "professional_roles": [
+            {
+                "id": "94",
+                "name": "Повар, пекарь, кондитер"
+            }
+        ],
+        "accept_incomplete_resumes": true,
+        "experience": {
+            "id": "noExperience",
+            "name": "Нет опыта"
+        },
+        "employment": {
+            "id": "full",
+            "name": "Полная занятость"
+        },
+        "adv_response_url": null,
+        "is_adv_vacancy": false
+    }
+]
