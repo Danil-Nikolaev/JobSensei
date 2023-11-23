@@ -1,4 +1,5 @@
 from typing import List, Dict
+import copy
 from vacancies import Vacancies
 
 
@@ -9,7 +10,8 @@ class Analyser:
                 descriptions=False,
                 skills=False,
                 experiences=False,
-                skills_by_experience=False) -> dict:
+                skills_by_experience=False,
+                unique_skills_by_experience=False) -> dict:
 
         result = {}
 
@@ -25,6 +27,8 @@ class Analyser:
             result.update(self.experiences(vacancies))
         if skills_by_experience:
             result.update(self.skills_by_experience(vacancies, most_required=10))
+        if unique_skills_by_experience:
+            result.update(self.unique_skills_by_experience(vacancies))
 
         return result
 
@@ -124,5 +128,35 @@ class Analyser:
                 for i, skill in enumerate(list(result["skills_by_experience"][experience])):
                     if i >= most_required:
                         del result["skills_by_experience"][experience][skill]
+
+        return result
+
+    def unique_skills_by_experience(self, vacancies: Vacancies) -> Dict[str, dict]:
+        result = {}
+        result["unique_skills_by_experience"] = {}
+        result["unique_skills_by_experience"]["noExperience"] = {}
+        result["unique_skills_by_experience"]["between1And3"] = {}
+        result["unique_skills_by_experience"]["between3And6"] = {}
+        result["unique_skills_by_experience"]["moreThan6"] = {}
+
+        skills_by_experience = self.skills_by_experience(vacancies, most_required=30)
+
+        for experience in skills_by_experience["skills_by_experience"].keys():
+            result["unique_skills_by_experience"][experience] = set(skills_by_experience["skills_by_experience"][experience].keys())
+
+        buffer = copy.deepcopy(result["unique_skills_by_experience"])
+        experiences = list(result["unique_skills_by_experience"])
+
+        for i in range(0, len(experiences)):
+            print(result["unique_skills_by_experience"][experiences[0]])
+            print(buffer[experiences[0]])
+            subtrahend = set()
+            for j in range(0, len(experiences)):
+                if j != i:
+                    subtrahend = subtrahend | buffer[experiences[j]]
+            result["unique_skills_by_experience"][experiences[i]] -= subtrahend
+
+        for experience in result["unique_skills_by_experience"].keys():
+            result["unique_skills_by_experience"][experience] = list(result["unique_skills_by_experience"][experience])
 
         return result
