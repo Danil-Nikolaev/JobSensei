@@ -21,15 +21,22 @@ class Server:
             body += event['body']
             more_body = event['more_body']
 
+        print(body)
+        print(type(body))
+
         body: List[dict] = Converter.to_object(body)
+        
+        print(body)
+        print(type(body))
+        
         vacancies = self.vacancies.from_json(body)
         results = self.analyser.analyse(vacancies,
-                                        avg_salary=False,
+                                        avg_salary=True,
                                         cities=False,
                                         descriptions=False,
-                                        skills=False,
+                                        skills=True,
                                         experiences=False,
-                                        skills_by_experience=True,
+                                        skills_by_experience=False,
                                         unique_skills_by_experience=False)
         results = Converter.from_object(results)
 
