@@ -32,10 +32,10 @@ class Server:
         vacancies = self.vacancies.from_json(body)
         results = self.analyser.analyse(vacancies,
                                         avg_salary=True,
-                                        cities=False,
+                                        cities=True,
                                         descriptions=False,
                                         skills=True,
-                                        experiences=False,
+                                        experiences=True,
                                         skills_by_experience=False,
                                         unique_skills_by_experience=False)
         results = Converter.from_object(results)

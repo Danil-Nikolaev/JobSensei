@@ -42,7 +42,7 @@ class Vacancy:
 
     def experience(self) -> str | None:
         if "experience" in self.vacancy and self.vacancy["experience"] is not None:
-            return self.vacancy["experience"]["id"]
+            return self.vacancy["experience"]
         return None
 
 
