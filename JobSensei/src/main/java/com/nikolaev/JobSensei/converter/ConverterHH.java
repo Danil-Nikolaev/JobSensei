@@ -20,14 +20,15 @@ public class ConverterHH extends Converter {
             JsonNode salary = getSalary(jsonNode);
             JsonNode skills = getSkills(jsonNode);
             String city = getCity(jsonNode);
-            JsonNode jsonItem = newItemResultJson(name, description, salary, skills, city);
+            JsonNode experience = getExperience(jsonNode);
+            JsonNode jsonItem = newItemResultJson(name, description, salary, skills, city, experience);
             arrayNode.add(jsonItem);
         }
     
         return arrayNode;
     }
 
-    private JsonNode newItemResultJson(String name, String description, JsonNode salary, JsonNode skills, String city) {
+    private JsonNode newItemResultJson(String name, String description, JsonNode salary, JsonNode skills, String city, JsonNode experience) {
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode newJson = mapper.createObjectNode();
         newJson.put("name", name);
@@ -35,6 +36,7 @@ public class ConverterHH extends Converter {
         newJson.set("salary", salary);
         newJson.set("skills", skills);
         newJson.put("city", city);
+        newJson.set("experience", experience);
         return newJson;
     }
 
@@ -56,6 +58,10 @@ public class ConverterHH extends Converter {
 
     private String getCity(JsonNode item) {
         return item.get("area").get("name").asText();
+    }
+
+    private JsonNode getExperience(JsonNode item) {
+        return item.get("experience");
     }
 
 }
