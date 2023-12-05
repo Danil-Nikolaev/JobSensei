@@ -36,8 +36,8 @@ class Server:
                                         descriptions=False,
                                         skills=True,
                                         experiences=True,
-                                        skills_by_experience=False,
-                                        unique_skills_by_experience=False)
+                                        skills_by_experience=True,
+                                        unique_skills_by_experience=True)
         results = Converter.from_object(results)
 
         await send({

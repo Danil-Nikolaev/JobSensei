@@ -31,8 +31,8 @@ class Vacancy:
         return None
 
     def city(self) -> str | None:
-        if "address" in self.vacancy and self.vacancy["address"] is not None:
-            return self.vacancy["address"]["city"]
+        if "city" in self.vacancy and self.vacancy["city"] is not None:
+            return self.vacancy["city"]
         return None
 
     def skills(self) -> list | None:

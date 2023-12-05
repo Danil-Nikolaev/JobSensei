@@ -90,6 +90,7 @@ public class HHAPI extends JobAPI {
     }
 
     private void addJson(String json) {
+        if (json == null) return;
         if (json.equals("error")) return;
 
         JsonNode jsonNode = stringToJsonNode(json);
