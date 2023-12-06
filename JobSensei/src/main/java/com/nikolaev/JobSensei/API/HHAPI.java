@@ -1,14 +1,10 @@
 package com.nikolaev.JobSensei.API;
 
 import java.time.LocalTime;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -105,7 +101,7 @@ public class HHAPI extends JobAPI {
         JsonNode jsonNode = stringToJsonNode(json);
         this.jsonArray.add(jsonNode);
     }
-    
+
     private int countRequest = 0;
     private String getVacancy(String url) {
         if (activateTimer && (LocalTime.now().getMinute() - localTime.getMinute() > 0 || LocalTime.now().getSecond() - this.localTime.getSecond() > 10)) {
