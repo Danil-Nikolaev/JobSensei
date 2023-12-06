@@ -56,7 +56,7 @@ public class Handler {
                 return response.body();
 
         } catch (URISyntaxException | IOException | InterruptedException exc) {
-            System.out.println("Module - HHAPI, method - getJson with one parametr");
+            System.out.println("Module - Handler, method - sendToAnalyzer");
             System.out.println(exc.getClass());
         }
         return null;

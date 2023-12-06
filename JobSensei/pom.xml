@@ -49,6 +49,22 @@
     		<groupId>com.fasterxml.jackson.core</groupId>
     		<artifactId>jackson-databind</artifactId>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.proxy-seller/proxy-seller-user-api -->
+		<dependency>
+			<groupId>com.proxy-seller</groupId>
+			<artifactId>proxy-seller-user-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5 -->
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+			<version>5.2.3</version>
+		</dependency>
+
+
 	</dependencies>
 
 	

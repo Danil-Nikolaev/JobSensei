@@ -1,10 +1,14 @@
 package com.nikolaev.JobSensei.API;
 
+import java.time.LocalTime;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,9 +23,16 @@ public class HHAPI extends JobAPI {
 
     ObjectMapper mapper;
     ArrayNode jsonArray;
+    RestTemplate restTemplate;
+    ProxyRequestAPI proxyRequestAPI;
+    boolean activateTimer = false;
+    LocalTime localTime;
 
-    public HHAPI(@Autowired ConverterHH converterHH) {
+    @Autowired
+    public HHAPI(ConverterHH converterHH, RestTemplate restTemplate, ProxyRequestAPI proxyRequestAPI) {
         super(converterHH);
+        this.proxyRequestAPI = proxyRequestAPI;
+        this.restTemplate = restTemplate;
         this.mapper = new ObjectMapper();
         this.jsonArray = mapper.createArrayNode();
     }
@@ -48,8 +59,7 @@ public class HHAPI extends JobAPI {
 
     private String getJson(String profession) {
         String url = "https://api.hh.ru/vacancies?search_field=name&per_page=100&text=" + profession;
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        ResponseEntity<String> response = this.restTemplate.getForEntity(url, String.class);
         if (response.getStatusCode() == HttpStatus.OK) {
             return response.getBody();
         }
@@ -69,8 +79,7 @@ public class HHAPI extends JobAPI {
     private JsonNode getJson(String profession, String page) {
         String apiUrl = "https://api.hh.ru/vacancies?per_page=100&search_field=name&text=" + profession + "&page=" + page;
 
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.getForEntity(apiUrl, String.class);
+        ResponseEntity<String> response = this.restTemplate.getForEntity(apiUrl, String.class);
 
         if (response.getStatusCode() == HttpStatus.OK) {
             String body = response.getBody();
@@ -84,7 +93,7 @@ public class HHAPI extends JobAPI {
     private void getVacancies(JsonNode jsonNode) {
         for (JsonNode item : jsonNode) {
             String url = item.get("url").asText();
-            sleep();
+            // sleep();
             addJson(getVacancy(url));
         }
     }
@@ -96,19 +105,18 @@ public class HHAPI extends JobAPI {
         JsonNode jsonNode = stringToJsonNode(json);
         this.jsonArray.add(jsonNode);
     }
-
-    private void sleep() {
-        try {
-            TimeUnit.MILLISECONDS.sleep(500);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
+    
+    private int countRequest = 0;
     private String getVacancy(String url) {
+        if (activateTimer && (LocalTime.now().getMinute() - localTime.getMinute() > 0 || LocalTime.now().getSecond() - this.localTime.getSecond() > 10)) {
+            System.out.println("work");
+            activateTimer = false;
+            restTemplate = proxyRequestAPI.restTemplate();
+        }
+
         try{
-            RestTemplate restTemplate = new RestTemplate();
-            ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+            System.out.println(countRequest++);
+            ResponseEntity<String> response = this.restTemplate.getForEntity(url, String.class);
            
             if (response.getStatusCode() == HttpStatus.OK) {
                 return response.getBody();
@@ -120,9 +128,11 @@ public class HHAPI extends JobAPI {
         }catch (Exception e) {
             System.out.println("GetVacancy");
             System.out.println(e.getClass());
+            this.restTemplate = proxyRequestAPI.change();
+            this.localTime = LocalTime.now();
+            this.activateTimer = true;
         }
         return null;
-      
-
     }
+
 }
