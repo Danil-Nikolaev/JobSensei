@@ -23,7 +23,7 @@ public class HHAPI extends JobAPI {
     ProxyRequestAPI proxyRequestAPI;
     boolean activateTimer = false;
     LocalTime localTime;
-
+    private int countRequest = 0;
     @Autowired
     public HHAPI(ConverterHH converterHH, RestTemplate restTemplate, ProxyRequestAPI proxyRequestAPI) {
         super(converterHH);
@@ -37,6 +37,8 @@ public class HHAPI extends JobAPI {
     protected ArrayNode getAllJson(String profession) {
         int pages = getPages(profession);
         for (int page = 0; page < pages; page++) {
+            if (this.countRequest > 99) break;
+
             JsonNode json = getJson(profession, String.valueOf(page));
             getVacancies(json);
         }
@@ -102,7 +104,7 @@ public class HHAPI extends JobAPI {
         this.jsonArray.add(jsonNode);
     }
 
-    private int countRequest = 0;
+    
     private String getVacancy(String url) {
         if (activateTimer && (LocalTime.now().getMinute() - localTime.getMinute() > 0 || LocalTime.now().getSecond() - this.localTime.getSecond() > 10)) {
             System.out.println("work");
