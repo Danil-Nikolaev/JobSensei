@@ -195,7 +195,7 @@ function skillsByExperienceMoreThanSix(json) {
 $(document).ready(function () {
 
     $(".btn").on("click", function () {
-        const url = "http://localhost:8080/analyze?profession="
+        const url = "http://localhost:8081/analyze?profession="
         changeFirstStyles();
 
         var valueInput = $('#profession').val();

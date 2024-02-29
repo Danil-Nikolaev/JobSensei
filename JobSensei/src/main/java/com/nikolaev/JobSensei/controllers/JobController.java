@@ -23,9 +23,14 @@ public class JobController {
         return "index";
     }
 
+    @GetMapping("/some")
+    public String getSome() {
+        return " new some";
+    }
+
     // Отправка запроса для предоставления анализа профессии
     @GetMapping("/analyze")
-    public Job getJob(@RequestParam String profession,@RequestParam(required = false) String[] creteria) {
+    public Job getJob(@RequestParam String profession, @RequestParam(required = false) String[] creteria) {
         return jobService.makeDesicion(profession, creteria);
     }
 }
